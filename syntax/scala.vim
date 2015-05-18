@@ -63,7 +63,7 @@ hi link scalaUnicodeChar Special
 syn match scalaNameDefinition /\<[_A-Za-z0-9$]\+\>/ contained nextgroup=scalaPostNameDefinition
 syn match scalaNameDefinition /`[^`]\+`/ contained nextgroup=scalaPostNameDefinition
 syn match scalaPostNameDefinition /\_s*:\_s*/ contained nextgroup=scalaTypeDeclaration
-hi link scalaNameDefinition Function
+hi link scalaNameDefinition Special
 
 syn match scalaInstanceDeclaration /\<[_\.A-Za-z0-9$]\+\>/ contained nextgroup=scalaInstanceHash
 syn match scalaInstanceDeclaration /`[^`]\+`/ contained
