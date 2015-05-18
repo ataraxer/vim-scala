@@ -120,7 +120,10 @@ hi link scalaCaseFollowing Special
 syn keyword scalaKeywordModifier abstract override final lazy implicit implicitly private protected sealed require super
 hi link scalaKeywordModifier Function
 
-syn keyword scalaSpecial this true false ne eq
+syn keyword scalaConstant true false
+hi link scalaConstant Constant
+
+syn keyword scalaSpecial this ne eq
 syn keyword scalaSpecial new nextgroup=scalaInstanceDeclaration skipwhite
 syn match scalaSpecial "\%(=>\|⇒\|<-\|←\|->\|→\)"
 syn match scalaSpecial /`[^`]*`/  " Backtick literals
