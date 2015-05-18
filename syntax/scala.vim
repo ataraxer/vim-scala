@@ -48,9 +48,6 @@ hi link scalaKeyword Keyword
 
 exe 'syn region scalaBlock start=/{/ end=/}/ contains=' . s:ContainedGroup() . ' fold'
 
-syn keyword scalaAkkaSpecialWord when goto using startWith initialize onTransition stay become unbecome
-hi link scalaAkkaSpecialWord PreProc
-
 syn match scalaSymbol /'[_A-Za-z0-9$]\+/
 hi link scalaSymbol Number
 
@@ -199,20 +196,6 @@ hi link scalaAnnotation PreProc
 
 syn match scalaTrailingComment "//.*$" contains=scalaTodo,@Spell
 hi link scalaTrailingComment Comment
-
-syn match scalaAkkaFSM /goto([^)]*)\_s\+\<using\>/ contains=scalaAkkaFSMGotoUsing
-syn match scalaAkkaFSM /stay\_s\+using/
-syn match scalaAkkaFSM /^\s*stay\s*$/
-syn match scalaAkkaFSM /when\ze([^)]*)/
-syn match scalaAkkaFSM /startWith\ze([^)]*)/
-syn match scalaAkkaFSM /initialize\ze()/
-syn match scalaAkkaFSM /onTransition/
-syn match scalaAkkaFSM /onTermination/
-syn match scalaAkkaFSM /whenUnhandled/
-syn match scalaAkkaFSMGotoUsing /\<using\>/
-syn match scalaAkkaFSMGotoUsing /\<goto\>/
-hi link scalaAkkaFSM PreProc
-hi link scalaAkkaFSMGotoUsing PreProc
 
 let b:current_syntax = 'scala'
 
