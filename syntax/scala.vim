@@ -75,8 +75,11 @@ syn match scalaInstanceHash /#/ contained nextgroup=scalaInstanceDeclaration
 hi link scalaInstanceDeclaration Special
 hi link scalaInstanceHash Type
 
-syn match scalaUnimplemented /???/
-hi link scalaUnimplemented ERROR
+syn keyword scalaDanger print println var null
+syn match scalaDanger /\v_[0-9]+/
+syn match scalaDanger /\v;[ ]*$/
+syn match scalaDanger /???/
+hi link scalaDanger Todo
 
 syn match scalaCapitalWord /\<[A-Z][A-Za-z0-9$]*\>/
 hi link scalaCapitalWord Special
@@ -114,7 +117,7 @@ syn match scalaCaseFollowing /\<[_\.A-Za-z0-9$]\+\>/ contained
 syn match scalaCaseFollowing /`[^`]\+`/ contained
 hi link scalaCaseFollowing Special
 
-syn keyword scalaKeywordModifier abstract override final lazy implicit implicitly private protected sealed null require super
+syn keyword scalaKeywordModifier abstract override final lazy implicit implicitly private protected sealed require super
 hi link scalaKeywordModifier Function
 
 syn keyword scalaSpecial this true false ne eq
