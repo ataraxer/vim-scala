@@ -38,6 +38,7 @@ unlet! b:current_syntax
 syn case match
 syn sync minlines=200 maxlines=1000
 
+syn keyword scalaKeyword inline meta
 syn keyword scalaKeyword catch do else final finally for forSome if
 syn keyword scalaKeyword match return throw try while yield macro
 syn keyword scalaKeyword class trait object extends with nextgroup=scalaInstanceDeclaration skipwhite
@@ -71,11 +72,19 @@ syn match scalaInstanceHash /#/ contained nextgroup=scalaInstanceDeclaration
 hi link scalaInstanceDeclaration Special
 hi link scalaInstanceHash Type
 
-syn keyword scalaDanger print println var null
-syn match scalaDanger /\v_[0-9]+/
+syn keyword scalaDanger print println
+syn keyword scalaDanger var mutable null
+syn keyword scalaDanger asInstanceOf isInstanceOf
+syn keyword scalaDanger Throwable JavaConversions Await postfixOps
+syn keyword scalaDanger Thread Any AnyVal AnyRef
+syn match scalaDanger /\v\._[0-9]+/
 syn match scalaDanger /\v;[ ]*$/
 syn match scalaDanger /???/
 hi link scalaDanger Todo
+
+syn keyword scalaWarning mapValues await throw Manifest
+syn match scalaWarning /\vcontext.(stop|become|watch|unwatch)/
+hi link scalaWarning Warning
 
 syn match scalaCapitalWord /\<[A-Z][A-Za-z0-9$]*\>/
 hi link scalaCapitalWord Special
@@ -113,7 +122,7 @@ syn match scalaCaseFollowing /\<[_\.A-Za-z0-9$]\+\>/ contained
 syn match scalaCaseFollowing /`[^`]\+`/ contained
 hi link scalaCaseFollowing Special
 
-syn keyword scalaKeywordModifier abstract override final lazy implicit implicitly private protected sealed require super
+syn keyword scalaKeywordModifier abstract override final lazy implicit private protected sealed super
 hi link scalaKeywordModifier Function
 
 syn keyword scalaConstant true false
